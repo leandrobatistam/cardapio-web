@@ -34,3 +34,13 @@ function valorFinal() {
 				"disabled");
 	}
 }
+
+
+function enviar(){
+	var xmlhttp = new XMLHttpRequest();
+	var url = "enviarListaItem";
+	xmlhttp.open("POST",url);
+	xmlhttp.setRequestHeader("Content-Type","application/json;charset=UTF-8");
+	xmlhttp.send(JSON.stringify(lsItem));
+}
+
