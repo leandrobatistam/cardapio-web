@@ -35,9 +35,9 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>Produto</th>
-					<th>QT</th>
-					<th>Valor</th>
+					<th>PRODUTO</th>
+					<th>QUANTIDADE</th>
+					<th>VALOR</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -68,7 +68,7 @@
 	</div>
 	<form action="servletPedido" method="post">
 		<button id="bt-concluir-pedido" name="submit" type="submit"
-			class="btn btn-primary confirmar">Concluir Pedido</button>
+			class="btn btn-primary confirmar">Concluir o Pedido</button>
 	</form>
 </body>
 </html>

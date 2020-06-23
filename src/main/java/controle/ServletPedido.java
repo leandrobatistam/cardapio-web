@@ -47,9 +47,9 @@ public class ServletPedido extends HttpServlet {
 			lsItem += "\n"+item.getProduto().getNome()+"/"+item.getQuantidade()+"/"+item.getTotal();
 		}
 		String fone = "5561999191616";
-		String msg = "Olá, me chamo "+cliente.getNome()+
+		String msg = "Olá, meu nome é "+cliente.getNome()+
 				"\nRealizei o pedido de N° "+pedido.getId()+
-				"\nProduto/Qt/Total"+
+				"\nProduto/Quantidade/Total"+
 				lsItem+
 				"\n*Valor Final "+pedido.getTotal()+"*"+
 				"\nPara ser entregue em "+cliente.getEndereco()+" - "+cliente.getCidade();
