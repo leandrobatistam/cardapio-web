@@ -1,4 +1,4 @@
-
+<%@page import="modelo.Pedido"%>
 <%@page import="modelo.ListaProduto"%>
 <%@page import="modelo.Cliente"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -41,7 +41,23 @@
 				</tr>
 			</thead>
 			<tbody>
-	
+				<%
+					Pedido pedido = new Pedido();
+					for (ListaProduto item : lsProduto) {
+						out.println("<tr>");
+						out.println("<td>" + item.getProduto().getNome() + "</td>");
+						out.println("<td>" + item.getQuantidade() + "</td>");
+						out.println("<td>" + item.getTotal() + "</td>");
+						out.println("</tr>");
+						pedido.setTotal(pedido.getTotal() + item.getTotal());
+					}
+					out.println("<tr>");
+					out.println("<td>Total do pedido</td>");
+					out.println("<td></td>");
+					out.println("<td>" + pedido.getTotal() + "</td>");
+					out.println("</tr>");
+					sessao.setAttribute("objPedido", pedido);
+				%>
 			</tbody>
 		</table>
 		Dados da Entrega:<br>
