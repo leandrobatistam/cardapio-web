@@ -1,38 +1,32 @@
-package dao;
+  package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import modelo.Cliente;
+import modelo.Pedido;
 
-public class ClienteDao {
-
-	public void incluir(Cliente cliente) {
+public class PedidoDao {
+	public void incluir(Pedido pedido) {
 		try {
 			Connection conexao = Conexao.getConectar();
 			PreparedStatement stm = conexao.prepareStatement(
-					"insert into cliente(nome,cidade,endereco,telefone) values(?,?,?,?)",
+					"insert into pedido(data_pedido,total,id_cliente) values(?,?,?)",
 					Statement.RETURN_GENERATED_KEYS);
-			stm.setString(1, cliente.getNome());
-			stm.setString(2, cliente.getCidade());
-			stm.setString(3, cliente.getEndereco());
-			stm.setString(4, cliente.getTelefone());
 			
+			stm.setString(1, pedido.getDataPedido().toString());
+			stm.setFloat(2, pedido.getTotal());
+			stm.setInt(3, pedido.getCliente().getId());
 			stm.executeUpdate();
 			
 			ResultSet rs = stm.getGeneratedKeys();
 			rs.next();
-			cliente.setId(rs.getInt(1));
-			
+			pedido.setId(rs.getInt(1));
 			stm.close();
 			conexao.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-			
 		}
-		
 	}
-
 }

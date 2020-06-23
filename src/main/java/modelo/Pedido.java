@@ -3,16 +3,17 @@ package modelo;
 import java.time.LocalDate;
 
 public class Pedido {
+
 	private int id;
 	private LocalDate dataPedido;
 	private LocalDate dataEntrega;
 	private float total;
+	
+	private Cliente cliente;
+	
 	public int getId() {
 		return id;
 	}
-	
-	Cliente cliente = new Cliente();
-	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -34,6 +35,12 @@ public class Pedido {
 	public void setTotal(float total) {
 		this.total = total;
 	}
+	public Cliente getCliente() {
+		return cliente;
+	}
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
 	
-	
+		
 }
