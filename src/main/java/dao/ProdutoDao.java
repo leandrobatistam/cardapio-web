@@ -13,7 +13,7 @@ public class ProdutoDao {
 		Produto p = new Produto();
 		try {
 			Connection conexao = Conexao.getConectar();
-			PreparedStatement pst = conexao.prepareStatement("select * from produto");
+			PreparedStatement pst = conexao.prepareStatement("select * from produto where id = ?");
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
@@ -24,12 +24,12 @@ public class ProdutoDao {
 			pst.close();
 			conexao.close();
 		} catch (Exception e) {
-
+			
 		}
-
+		
 		return p;
 	}
-
+	
 	public List<Produto> buscarTudo() {
 		List<Produto> ls = new ArrayList<Produto>();
 		try {
@@ -46,9 +46,9 @@ public class ProdutoDao {
 			pst.close();
 			conexao.close();
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 		}
-
+		
 		return ls;
 	}
 
